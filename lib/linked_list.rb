@@ -30,7 +30,9 @@ class LinkedList
     counter
   end
 
-  def to_string
-    head.data
+  def to_string(node = head)
+    return "" if node.nil?
+    return node.data + to_string(node.next_node) if node == head
+    " " + node.data + to_string(node.next_node)
   end
 end
