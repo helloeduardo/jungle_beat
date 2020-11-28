@@ -91,4 +91,27 @@ class NodeTest < Minitest::Test
     list.prepend("dop")
     assert_equal "dop plop suu", list.to_string
   end
+
+  def test_it_can_insert
+    list = LinkedList.new
+
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+
+    assert_equal "dop woo plop suu", list.to_string
+  end
+
+  def test_it_can_find_node_at_position
+    list = LinkedList.new
+
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+
+    assert_equal "plop", list.node_at(1).data
+    assert_equal "dop", list.node_at(0).data
+    assert_equal "suu", list.node_at(2).data
+  end
 end

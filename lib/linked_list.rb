@@ -39,4 +39,19 @@ class LinkedList
   def prepend(data)
     @head = Node.new(data, @head)
   end
+
+  def insert(position, data)
+    node = node_at(position - 1)
+    node.next_node = Node.new(data, node.next_node)
+  end
+
+  def node_at(position)
+    counter = 0
+    pointer = head
+    while counter < position
+      counter += 1
+      pointer = pointer.next_node
+    end
+    pointer
+  end
 end
