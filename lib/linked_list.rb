@@ -35,4 +35,8 @@ class LinkedList
     return node.data + to_string(node.next_node) if node == head
     " " + node.data + to_string(node.next_node)
   end
+
+  def prepend(data)
+    @head = Node.new(data, @head)
+  end
 end
